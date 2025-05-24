@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Astro Planet - The Astrology App</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <!-- integrated from solar system project -->
+    <div class="upper-container">
+      <div class="planet-container">
+        <div class="orbit">
+          <div class="Sum">
+            <img src="./sun.png" alt="" />
+          </div>
+          <div class="mercury_orbit"></div>
+          <div class="Mercury">
+            <img src="./mercury.png" alt="" />
+          </div>
+          <div class="venus_orbit"></div>
+          <div class="Venus">
+            <img src="./Venus.png" alt="" />
+          </div>
+          <div class="earth_orbit"></div>
+          <div class="Earth">
+            <img src="./earth.png" alt="" />
+          </div>
+          <div class="mars_orbit"></div>
+          <div class="Mars">
+            <img src="./mars.png" alt="" />
+          </div>
+          <div class="jupyter_orbit"></div>
+          <div class="Jupiter">
+            <img src="./jupyter.png" alt="" />
+          </div>
+          <div class="saturn_orbit"></div>
+          <div class="Saturn">
+            <img src="./saturn.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Twinkling Stars Animation : Let's do it! -->
+    <div class="stars" id="star-container"></div>
+    <!-- zodiac sign finder -->
+    <div class="container">
+      <h1>✨ Zodiac Sign Finder</h1>
+      <form id="zodiacForm">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" required />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" required />
+        </div>
+        <div
+          class="birth-date-group"
+          role="group"
+          aria-labelledby="birth-date-label"
+        >
+          <span id="birth-date-label" class="date-label">Birth Date</span>
+          <div class="date-inputs">
+            <div class="form-group">
+              <label for="day">Day</label>
+              <input
+                type="number"
+                id="day"
+                min="1"
+                max="31"
+                required
+                oninput="this.value = this.value > 31 ? 31 : Math.abs(this.value)"
+              />
+            </div>
+            <div class="form-group">
+              <label for="month">Month</label>
+              <input
+                type="number"
+                id="month"
+                min="1"
+                max="12"
+                required
+                oninput="this.value = this.value > 12 ? 12 : Math.abs(this.value)"
+              />
+            </div>
+            <div class="form-group">
+              <label for="year">Year</label>
+              <input
+                type="number"
+                id="year"
+                min="1900"
+                max="2024"
+                required
+                oninput="this.value = Math.min(Math.max(Math.abs(this.value), 1900), 2025)"
+              />
+              <!-- will have to update 2025 after every year end -->
+            </div>
+          </div>
+        </div>
+        <button type="submit">Find My Zodiac Sign</button>
+      </form>
+      <div id="result"></div>
+      <div
+        id="loadingContainer"
+        class="loading-container"
+        style="display: none"
+      >
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Consulting the stars...</div>
+      </div>
+    </div>
+  </body>
+</html>
